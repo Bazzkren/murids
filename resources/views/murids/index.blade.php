@@ -13,20 +13,20 @@
             @endsession
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a class="btn btn-success btn-sm" href="{{ ('murids.create') }}"> <i class="fa fa-plus"></i> new</a>
+                <a class="btn btn-success btn-sm" href="{{ route('murids.create') }}"> <i class="fa fa-plus"></i> new</a>
             </div>
 
             <table class="table table-bordered table-striped mt-4">
                 <head>
                     <tr>
                         <th width="80px">No</th>
-                        <th>Nis<th>
-                        <th>Nama<th>
-                        <th>Rombel<th>
-                        <th>Rayon<th>
-                        <th>Alamat<th>
-                        <th>No Telp<th>
-                        <th>Jk<th>
+                        <th>Nis</th>
+                        <th>Nama</th>
+                        <th>Rombel</th>
+                        <th>Rayon</th>
+                        <th>Alamat</th>
+                        <th>No Telp</th>
+                        <th>Jk</th>
                         <th width="280px">Action</th>
                     </tr>
                 </head>
