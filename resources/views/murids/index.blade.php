@@ -1,26 +1,59 @@
 @extends('murids.layout')
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Siswa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-</head>
-<body>
-    <div class="card">
-        <div class="card-header">
-            Featured
-        </div>
+
+    <div class="card mt-5">
+        <h2 class="card-header">Data Siswa</h2>
         <div class="card-body">
-            <h5 class="card-title">Data Siswa</h5>
-            <p class="card-text">Berikut adalah data siswa yang telah terdaftar.</p>
-            <a href="#"class="btn btn-primary">apa aja</a>
+
+
+            @session('success')
+            <div class="alert-success" role="alert">
+                {{ $value }}
+            </div>
+            @endsession
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a class="btn btn-success btn-sm" href="{{ ('murids.create') }}"> <i class="fa fa-plus"></i> new</a>
+            </div>
+
+            <table class="table table-bordered table-striped mt-4">
+                <head>
+                    <tr>
+                        <th width="80px">No</th>
+                        <th>Nis<th>
+                        <th>Nama<th>
+                        <th>Rombel<th>
+                        <th>Rayon<th>
+                        <th>Alamat<th>
+                        <th>No Telp<th>
+                        <th>Jk<th>
+                        <th width="280px">Action</th>
+                    </tr>
+                </head>
+                <tbody>
+                    @foreach ($murids as $murid)
+                        <tr>
+                            <td>{{ ++$i }}</td>
+                            <td>{{ $murid->nis }}</td>
+                            <td>{{ $murid->nama }}</td>
+                            <td>{{ $murid->rombel }}</td>
+                            <td>{{ $murid->rayon }}</td>
+                            <td>{{ $murid->alamat }}</td>
+                            <td>{{ $murid->no_telp }}</td>
+                            <td>{{ $murid->jk }}</td>
+                            <td>
+                                <form action="{{ route('murids.destroy', $murid->id) }}" method="POST">
+                                    <a class="btn btn-info btn-sm" href="{{ route('murids.show', $murid->id) }}">Show</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('murids.edit', $murid->id) }}">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
-    </div>
-
-</html>
-@endsection
-
+        @endsection
