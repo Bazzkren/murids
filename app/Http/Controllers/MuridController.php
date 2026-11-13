@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Murid;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Requests\muridstoreRequest;
-use Illuminate\Requests\muridupdateRequset;
+use App\Http\Requests\MuridStoreRequest;
+use App\Http\Requests\MuridUpdateRequest;
 
 class MuridController extends Controller
 {
@@ -31,7 +31,7 @@ class MuridController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MuridStoreRequest $request)
     {
         Murid::create($request->validated());
         return redirect()->route('murids.index')
@@ -57,7 +57,7 @@ class MuridController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Murid $murid)
+    public function update(MuridUpdateRequest $request, Murid $murid)
     {
         $murid->update($request->validated());
         return redirect()->route('murids.index')

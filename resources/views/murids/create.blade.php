@@ -14,27 +14,27 @@
         @csrf
 
         <div class="mb-3">
-            <label for="inputName" class="form-label"><strong>Name:</strong></label>
+            <label for="inputNis" class="form-label"><strong>NIS:</strong></label>
             <input
-                type="text"
-                name="name"
-                class="form-control @error('name') is-invalid @enderror"
-                id="inputName"
-                placeholder="Name">
-            @error('name')
+                type="number"
+                name="nis"
+                class="form-control @error('nis') is-invalid @enderror"
+                id="inputNis"
+                placeholder="NIS">
+            @error('nis')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label for="inputNis" class="form-label"><strong>Nis:</strong></label>
+            <label for="inputNama" class="form-label"><strong>Name:</strong></label>
             <input
                 type="text"
-                name="nis"
-                class="form-control @error('nis') is-invalid @enderror"
-                id="inputNis"
-                placeholder="Nis">
-            @error('nis')
+                name="name"
+                class="form-control @error('name') is-invalid @enderror"
+                id="inputNama"
+                placeholder="Name">
+            @error('name')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -53,17 +53,59 @@
         </div>
 
         <div class="mb-3">
-            <label for="inputDetail" class="form-label"><strong>Detail:</strong></label>
-            <textarea
-                class="form-control @error('detail') is-invalid @enderror"
-                style="height:150px"
-                name="detail"
-                id="inputDetail"
-                placeholder="Detail"></textarea>
-            @error('detail')
+            <label for="inputRayon" class="form-label"><strong>Rayon:</strong></label>
+            <input
+                type="text"
+                name="rayon"
+                class="form-control @error('rayon') is-invalid @enderror"
+                id="inputRayon"
+                placeholder="Rayon">
+            @error('rayon')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>
+
+
+        <div class="mb-3">
+            <label for="inputAlamat" class="form-label"><strong>Alamat:</strong></label>
+            <input
+                type="text"
+                name="alamat"
+                class="form-control @error('alamat') is-invalid @enderror"
+                id="inputAlamat"
+                placeholder="Alamat">
+            @error('alamat')
+                <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+
+        <div class="mb-3">
+            <label for="inputNoTelp" class="form-label"><strong>No Telp:</strong></label>
+            <input
+                type="text"
+                name="no_telp"
+                class="form-control @error('no_telp') is-invalid @enderror"
+                id="inputNoTelp"
+                placeholder="No Telp">
+            @error('no_telp')
+                <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="inputJk" class="form-label"><strong>Jk:</strong></label>
+            <select id="inputJk" name="jk" class="form-select @error('jk') is-invalid @enderror">
+                <option value="">--PILIH JENIS KELAMIN--</option>
+                <option value="L">Laki-laki</option>
+                <option value="P">Perempuan </option>
+        </select>
+
+            @error('jk')
+                <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
         <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
     </form>
 
