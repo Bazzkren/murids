@@ -14,14 +14,14 @@
         @csrf
 
         <div class="mb-3">
-            <label for="inputNis" class="form-label"><strong>NIS:</strong></label>
+            <label for="inputNisn" class="form-label"><strong>NIS:</strong></label>
             <input
                 type="number"
-                name="nis"
-                class="form-control @error('nis') is-invalid @enderror"
-                id="inputNis"
+                name="nisn"
+                class="form-control @error('nisn') is-invalid @enderror"
+                id="inputNisn"
                 placeholder="NIS">
-            @error('nis')
+            @error('nisn')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -30,11 +30,11 @@
             <label for="inputNama" class="form-label"><strong>Name:</strong></label>
             <input
                 type="text"
-                name="name"
-                class="form-control @error('name') is-invalid @enderror"
+                name="nama"
+                class="form-control @error('nama') is-invalid @enderror"
                 id="inputNama"
                 placeholder="Name">
-            @error('name')
+            @error('nama')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -94,14 +94,14 @@
         </div>
 
         <div class="mb-3">
-            <label for="inputJk" class="form-label"><strong>Jk:</strong></label>
-            <select id="inputJk" name="jk" class="form-select @error('jk') is-invalid @enderror">
+            <label for="inputJenis_Kelamin" class="form-label"><strong>Jk:</strong></label>
+            <select id="inputJenis_Kelamin" name="jenis_kelamin" class="form-select @error('jenis_kelamin') is-invalid @enderror">
                 <option value="">--PILIH JENIS KELAMIN--</option>
                 <option value="L">Laki-laki</option>
                 <option value="P">Perempuan </option>
         </select>
 
-            @error('jk')
+            @error('jenis_kelamin')
                 <div class="form-text text-danger">{{ $message }}</div>
             @enderror
         </div>

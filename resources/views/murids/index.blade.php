@@ -31,16 +31,16 @@
                     </tr>
                 </head>
                 <tbody>
-                    @foreach ($murids as $murid)
+                    @forelse ($murids as $murid)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{ $murid->nis }}</td>
+                            <td>{{ $murid->nisn }}</td>
                             <td>{{ $murid->nama }}</td>
                             <td>{{ $murid->rombel }}</td>
                             <td>{{ $murid->rayon }}</td>
                             <td>{{ $murid->alamat }}</td>
                             <td>{{ $murid->no_telp }}</td>
-                            <td>{{ $murid->jk }}</td>
+                            <td>{{ $murid->jenis_kelamin }}</td>
                             <td>
                                 <form action="{{ route('murids.destroy', $murid->id) }}" method="POST">
                                     <a class="btn btn-info btn-sm" href="{{ route('murids.show', $murid->id) }}">Show</a>
@@ -51,7 +51,11 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="9" class="text-center">No data available</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
 

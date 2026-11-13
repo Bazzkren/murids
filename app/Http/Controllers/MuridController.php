@@ -13,7 +13,7 @@ class MuridController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $murids = Murid::latest()->paginate(5);
         return view('murids.index', compact('murids'))

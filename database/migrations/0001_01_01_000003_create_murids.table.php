@@ -19,6 +19,7 @@ public function up(): void
             $table->string('rayon');
             $table->string('rombel');
             $table->string('no_telp');
+            $table->timestamps();
         });
     }
 
